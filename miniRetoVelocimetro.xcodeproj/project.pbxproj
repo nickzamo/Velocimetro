@@ -47,6 +47,7 @@
 		01A66DB01C7E74F400A8320A /* miniRetoVelocimetroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miniRetoVelocimetroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A66DB41C7E74F400A8320A /* miniRetoVelocimetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniRetoVelocimetroUITests.swift; sourceTree = "<group>"; };
 		01A66DB61C7E74F400A8320A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A66DC21C7E750D00A8320A /* miniVelocimetro.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = miniVelocimetro.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 				01A66D9B1C7E74F400A8320A /* Assets.xcassets */,
 				01A66D9D1C7E74F400A8320A /* LaunchScreen.storyboard */,
 				01A66DA01C7E74F400A8320A /* Info.plist */,
+				01A66DC21C7E750D00A8320A /* miniVelocimetro.playground */,
 			);
 			path = miniRetoVelocimetro;
 			sourceTree = "<group>";

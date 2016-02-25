@@ -56,5 +56,5 @@ var cadena : String
 
 for i in 1...20 {
     (numero,cadena) = auto.cambioDeVelocidad()
-    print("\(numero) \(cadena)")
+    print("\(numero), \(cadena)")
 }

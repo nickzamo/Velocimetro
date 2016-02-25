@@ -1,61 +1,60 @@
-//: Mini Reto de Velocimetro
+//: Playground - noun: a place where people can play
+
 import UIKit
 
-
-enum Velocidades : Int{
+enum Velocidades: Int {
     case Apagado = 0, VelocidadBaja = 20, VelocidadMedia = 50, VelocidadAlta = 120
     
-    init(velocidadInicial : Velocidades)
-    {
+    init(velocidadInicial : Velocidades) {
         self = velocidadInicial
     }
 }
 
-class Auto{
-    
+class Auto {
     var velocidad : Velocidades
-
     
-    
-    init(){
-        self.velocidad = Velocidades.init(velocidadInicial: .Apagado)
+    init() {
+        self.velocidad = Velocidades.init(velocidadInicial: Velocidades.Apagado)
     }
     
-    func cambioDeVelocidad() -> ( actual:Int, velocidadEnCadena: String )
-    {
-        var nombreVelocidad : String = ""
-        let velocidadActual : Int = velocidad.rawValue
+    func cambioDeVelocidad() -> (actual : Int, velocidadEnCadeana: String) {
         
-        switch velocidad
-        {
-            case .Apagado:
-                nombreVelocidad = "Apagado"
-                velocidad = .VelocidadBaja
-                break
-            case .VelocidadBaja:
-                nombreVelocidad = "Velocidad Baja"
-                velocidad = .VelocidadBaja
-                break
-            case .VelocidadMedia:
-                nombreVelocidad = "Velocidad Media"
-                velocidad = .VelocidadBaja
-                break
-            case .VelocidadAlta:
-                nombreVelocidad = "Velocidad Alta"
-                velocidad = .VelocidadBaja
-                break
+        let velocidadCadena : String
+        let velocidadOriginal : Velocidades = self.velocidad
+        
+        switch velocidadOriginal {
+        case .Apagado:
+            velocidadCadena = "Apagado"
+        case .VelocidadBaja:
+            velocidadCadena = "Velocidad baja"
+        case .VelocidadMedia:
+            velocidadCadena = "Velocidad media"
+        case .VelocidadAlta:
+            velocidadCadena = "Velocidad alta"
         }
         
-        return (velocidadActual, nombreVelocidad)
+        switch self.velocidad  {
+        case .Apagado:
+            self.velocidad = Velocidades.VelocidadBaja
+        case .VelocidadBaja:
+            self.velocidad = Velocidades.VelocidadMedia
+        case .VelocidadMedia:
+            self.velocidad = Velocidades.VelocidadAlta
+        case .VelocidadAlta:
+            self.velocidad = Velocidades.VelocidadMedia
+
+        }
         
+        return (velocidadOriginal.rawValue,velocidadCadena)
     }
 }
 
-var auto = Auto()
 
-for(var i=0; i<20; i++)
-{
-    let velocidadAuto = auto.cambioDeVelocidad()
-    print("\(velocidadAuto.actual), \(velocidadAuto.velocidadEnCadena)")
+var auto : Auto = Auto.init()
+var numero : Int
+var cadena : String
+
+for i in 1...20 {
+    (numero,cadena) = auto.cambioDeVelocidad()
+    print("\(numero) \(cadena)")
 }
-

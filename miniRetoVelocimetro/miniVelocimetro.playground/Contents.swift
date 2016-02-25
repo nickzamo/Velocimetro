@@ -42,7 +42,7 @@ class Auto {
             self.velocidad = Velocidades.VelocidadAlta
         case .VelocidadAlta:
             self.velocidad = Velocidades.VelocidadMedia
-
+            
         }
         
         return (velocidadOriginal.rawValue,velocidadCadena)
@@ -56,5 +56,5 @@ var cadena : String
 
 for i in 1...20 {
     (numero,cadena) = auto.cambioDeVelocidad()
-    print("\(numero), \(cadena)")
+    print("\(i).- \t\(numero), \(cadena)")
 }

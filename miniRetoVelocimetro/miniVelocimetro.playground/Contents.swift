@@ -12,49 +12,50 @@ enum Velocidades : Int{
 }
 
 class Auto{
-    var nombreVelocidad : String
-    //var velocidadInicial : Velocidades
-    var velocidad = Velocidades(velocidadInicial: <#T##Velocidades#>)
-    var aux: Int = 0
+    
+    var velocidad : Velocidades
+
     
     
-    init(apagado: Velocidades){
-        self.velocidad = apagado
-        
+    init(){
+        self.velocidad = Velocidades.init(velocidadInicial: .Apagado)
     }
-    func cambioDeVelocidad()->(actual:Int,velocidadEnCadena:String)
+    
+    func cambioDeVelocidad() -> ( actual:Int, velocidadEnCadena: String )
     {
+        var nombreVelocidad : String = ""
+        let velocidadActual : Int = velocidad.rawValue
         
-        if(velocidad == Velocidades.Apagado)
+        switch velocidad
         {
-            aux = Velocidades.VelocidadBaja.rawValue
-            nombreVelocidad = "Apagado"
-        }
-        if(velocidad == Velocidades.VelocidadBaja)
-        {
-            aux = Velocidades.VelocidadMedia.rawValue
-            nombreVelocidad = "Velocidad Baja"
-        }
-        if(velocidad == Velocidades.VelocidadMedia)
-        {
-            aux = Velocidades.VelocidadAlta.rawValue
-            nombreVelocidad = "Velocidad Media"
-        }
-        if(velocidad == Velocidades.VelocidadAlta)
-        {
-            aux = Velocidades.VelocidadMedia.rawValue
-            nombreVelocidad = "Velocidad Alta"
+            case .Apagado:
+                nombreVelocidad = "Apagado"
+                velocidad = .VelocidadBaja
+                break
+            case .VelocidadBaja:
+                nombreVelocidad = "Velocidad Baja"
+                velocidad = .VelocidadBaja
+                break
+            case .VelocidadMedia:
+                nombreVelocidad = "Velocidad Media"
+                velocidad = .VelocidadBaja
+                break
+            case .VelocidadAlta:
+                nombreVelocidad = "Velocidad Alta"
+                velocidad = .VelocidadBaja
+                break
         }
         
-        return (aux, nombreVelocidad)
+        return (velocidadActual, nombreVelocidad)
         
     }
 }
 
-var auto = Auto.cambioDeVelocidad
+var auto = Auto()
 
 for(var i=0; i<20; i++)
 {
-    print("\(i) \(auto)")
+    let velocidadAuto = auto.cambioDeVelocidad()
+    print("\(velocidadAuto.actual), \(velocidadAuto.velocidadEnCadena)")
 }
 
